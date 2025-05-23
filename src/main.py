@@ -1,17 +1,11 @@
-import os
-
 import pandas as pd
 
 from src.freelancers_service import FreelancerInfoService
-from src.config import OPENAI_API_KEY
+from src.config import OPENAI_API_KEY, PATH_TO_FREELANCERS_DATA
 
 
 if __name__ == "__main__":
-    csv_path = "data/freelancer_earnings_bd.csv"
-
-    if not os.path.isfile(csv_path):
-        print(f"Ошибка: CSV-файл не найден по пути {csv_path}")
-        exit(1)
+    csv_path = PATH_TO_FREELANCERS_DATA
 
     df = pd.read_csv(csv_path)
 
