@@ -14,7 +14,7 @@ if __name__ == "__main__":
     print("Введите запросы к данным (exit для выхода):")
     while True:
         request = input(">> ").strip()
-        if request.lower() in {"exit", "quit"}:
+        if request.lower() == 'exit':
             break
 
         result = freelancer_service.on_request(request)
