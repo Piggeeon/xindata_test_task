@@ -14,6 +14,7 @@ if __name__ == "__main__":
     print("Введите запросы к данным (exit для выхода):")
     while True:
         request = input(">> ").strip()
+        request = request.encode('utf-8', 'replace').decode('utf-8')
         if request.lower() == 'exit':
             break
 
