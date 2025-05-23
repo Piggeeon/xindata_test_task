@@ -2,11 +2,8 @@ import os
 
 import pandas as pd
 
-from dotenv import load_dotenv
-
-from freelancers_service import FreelancerInfoService
-
-load_dotenv()
+from src.freelancers_service import FreelancerInfoService
+from src.config import OPENAI_API_KEY
 
 
 if __name__ == "__main__":
@@ -18,7 +15,7 @@ if __name__ == "__main__":
 
     df = pd.read_csv(csv_path)
 
-    freelancer_service = FreelancerInfoService(df)
+    freelancer_service = FreelancerInfoService(dataframe=df, api_key=OPENAI_API_KEY)
 
     print("Введите запросы к данным (exit для выхода):")
     while True:

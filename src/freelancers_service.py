@@ -15,15 +15,14 @@ class FreelancerInfoService:
 
     def __init__(
             self,
+            api_key: str,
             dataframe: pd.DataFrame,
             model_name: str = "gpt-4o-mini",
             temperature: float = 0.0,
     ):
         self.df = dataframe.copy()
 
-        api_key = os.getenv("OPENAI_API_KEY")
-        if not api_key:
-            raise ValueError("Переменная окружения OPENAI_API_KEY не установлена")
+        self.api_key = api_key
 
         prefix = """
         Ты помощник для анализа данных о фрилансерах, работающий с pandas DataFrame. Строго выполняй следующие правила:
@@ -59,8 +58,8 @@ class FreelancerInfoService:
         self.llm = ChatOpenAI(
             model=model_name,
             temperature=temperature,
-            openai_api_key=api_key,
-            openai_api_base="https://openrouter.ai/api/v1",
+            api_key=self.api_key,
+            base_url="https://openrouter.ai/api/v1",
             max_tokens=1000,
         )
 
