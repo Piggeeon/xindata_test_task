@@ -12,13 +12,16 @@
 2. **Клонируйте репозиторий:**  
 git clone git@github.com:Piggeeon/xindata_test_task.git
 
-3. **Соберите образ Docker:**  
+3. **Перейдите в папку с проектом:**  
+cd xindata_test_task
+
+4. **Соберите образ Docker:**  
 docker build -t freelancers_info .
 
-4. **Запустите контейнер:**  
+5. **Запустите контейнер:**  
 docker run -e OPENAI_API_KEY=ВАШ_OpenRouter_API_KEY --name freelancers_info -it freelancers_info
 
-5. **Вводите вопросы в командную строку. Для выхода используйте команду `exit`.**
+6. **Вводите вопросы в командную строку. Для выхода введите `exit`.**
 
 ---
 
